@@ -3,6 +3,8 @@ import cors from 'cors';
 import http from 'http';
 import { Server } from 'socket.io';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -20,12 +22,17 @@ const io = new Server(server, {
   },
 });
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const staticDir = path.join(__dirname, '../public');
+
 if (allowedOrigins) {
   app.use(cors({ origin: allowedOrigins }));
 } else {
   app.use(cors());
 }
 app.use(express.json());
+app.use(express.static(staticDir));
 
 const CURRENT_USER_ID = 'user-1';
 
