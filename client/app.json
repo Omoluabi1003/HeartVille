@@ -1,0 +1,8 @@
+{
+  "expo": {
+    "name": "Heartville",
+    "slug": "heartville",
+    "scheme": "heartville",
+    "assetBundlePatterns": ["**/*"]
+  }
+}
