@@ -26,6 +26,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const staticDir = path.join(__dirname, '../public');
 
+const shouldServeMarketingApp = (req) =>
+  req.method === 'GET' &&
+  !req.path.startsWith('/api') &&
+  !req.path.startsWith('/socket.io') &&
+  !req.path.includes('.') &&
+  req.accepts('html');
+
 if (allowedOrigins) {
   app.use(cors({ origin: allowedOrigins }));
 } else {
@@ -324,7 +331,19 @@ app.get('/api/recommendations', (_req, res) => {
   res.json({ recommendations: recommended });
 });
 
-app.use((_req, res) => {
+app.get('*', (req, res, next) => {
+  if (!shouldServeMarketingApp(req)) {
+    return next();
+  }
+
+  return res.sendFile('index.html', { root: staticDir }, (error) => {
+    if (error) {
+      next(error);
+    }
+  });
+});
+
+app.use((req, res) => {
   res.status(404).json({ error: 'Not found' });
 });
 
