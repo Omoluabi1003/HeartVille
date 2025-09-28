@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heartville – Intentional Dating</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="hero__nav">
+        <span class="logo">Heartville</span>
+        <a class="cta" href="#download">Get the app</a>
+      </nav>
+      <div class="hero__content">
+        <div class="hero__copy">
+          <h1>Dating that feels grounded, intentional, and delightfully human.</h1>
+          <p>
+            Heartville pairs handcrafted profiles with real-time insights so you can focus on sparking the right conversations.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#demo">See the live demo</a>
+            <a class="button" href="#features">Explore features</a>
+          </div>
+        </div>
+        <div class="hero__card" id="hero-card"></div>
+      </div>
+    </header>
+
+    <main>
+      <section id="features" class="section">
+        <div class="section__heading">
+          <h2>Why people love Heartville</h2>
+          <p>Every interaction is designed to help you show up as your favorite version of yourself.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <h3>Curated discovery</h3>
+            <p>
+              Scroll through richly designed profile cards that highlight the nuance behind every match—including vibe, compatibility, and prompts that actually inspire conversation.
+            </p>
+          </article>
+          <article class="feature">
+            <h3>Match momentum</h3>
+            <p>
+              Stay on top of new sparks with real-time toasts, conversation starters, and compatibility scores tailored to your shared interests.
+            </p>
+          </article>
+          <article class="feature">
+            <h3>Actionable insights</h3>
+            <p>
+              Weekly highlights summarize who responded, which prompts performed best, and ways to nurture your newest connections.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="demo" class="section section--accent">
+        <div class="section__heading">
+          <h2>Peek inside the experience</h2>
+          <p>
+            The page below pulls real demo data from the Heartville API so you can see the tone, storytelling, and compatibility framework in action.
+          </p>
+        </div>
+        <div class="demo" id="demo-profiles">
+          <div class="demo__loading" id="demo-loading">Loading profiles…</div>
+        </div>
+      </section>
+
+      <section id="download" class="section">
+        <div class="cta-card">
+          <div>
+            <h2>Ready to test Heartville with your team?</h2>
+            <p>
+              Spin up the Expo client for the full mobile experience and pair it with the server running this site. The instructions below will get you there in minutes.
+            </p>
+          </div>
+          <a class="button button--primary" href="https://expo.dev/" target="_blank" rel="noopener">Launch Expo</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made with intentionality in Austin, Denver, and Seattle.</p>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>

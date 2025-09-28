@@ -26,14 +26,14 @@ cd ../client
 npm install
 ```
 
-### 2. Start the API server
+### 2. Start the API server and marketing site
 
 ```bash
 cd server
 npm start
 ```
 
-The API will boot on [http://localhost:4000](http://localhost:4000).
+The API and static marketing site will boot on [http://localhost:4000](http://localhost:4000). Open that URL in your browser to explore a live preview of the Heartville experience powered by the same demo data that the mobile client consumes.
 
 ### 3. Start the Expo client
 
