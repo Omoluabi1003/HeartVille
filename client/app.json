@@ -2,6 +2,7 @@
   "expo": {
     "name": "Heartville",
     "slug": "heartville",
+    "version": "0.2.0",
     "scheme": "heartville",
     "assetBundlePatterns": ["**/*"]
   }

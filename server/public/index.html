@@ -73,6 +73,37 @@
         </div>
       </section>
 
+      <section id="catalogue" class="section catalogue" hidden>
+        <div class="section__heading">
+          <h2>Soundtrack for intentional sparks</h2>
+          <p>
+            Press play on the Omoluabi catalogue album scoring every intentional Heartville moment—from the first swipe to the
+            late-night debrief.
+          </p>
+        </div>
+        <div class="catalogue__layout">
+          <div class="catalogue__artwork">
+            <span class="catalogue__pill">Curated album</span>
+            <img
+              id="catalogue-cover"
+              src="https://images.unsplash.com/photo-1526285748840-2144d21042e7?auto=format&fit=crop&w=900&q=80"
+              alt="Omoluabi catalogue artwork"
+              loading="lazy"
+            />
+          </div>
+          <div class="catalogue__details">
+            <h3 id="catalogue-title"></h3>
+            <p id="catalogue-description" class="catalogue__description"></p>
+            <p id="catalogue-meta" class="catalogue__meta"></p>
+            <div id="catalogue-tags" class="catalogue__tags"></div>
+            <ul id="catalogue-tracklist" class="catalogue__tracklist"></ul>
+            <button id="catalogue-search-button" class="button button--primary catalogue__search" type="button">
+              Open track search
+            </button>
+          </div>
+        </div>
+      </section>
+
       <section id="download" class="section">
         <div class="cta-card">
           <div>
@@ -89,6 +120,30 @@
     <footer class="footer">
       <p>Made with intentionality in Austin, Denver, and Seattle.</p>
     </footer>
+
+    <div class="modal" id="track-modal" aria-hidden="true">
+      <div class="modal__backdrop" data-close-modal></div>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="track-modal-title">
+        <div class="modal__header">
+          <div>
+            <p class="modal__eyebrow">Catalogue search</p>
+            <h3 class="modal__title" id="track-modal-title">Find a track</h3>
+          </div>
+          <button class="modal__close" type="button" aria-label="Close track search" data-close-modal>&times;</button>
+        </div>
+        <div class="modal__body">
+          <label class="modal__label" for="track-search-input">Search by title, artist, mood, or tag</label>
+          <input
+            type="search"
+            id="track-search-input"
+            class="modal__input"
+            placeholder="Try “empathy”, “alt-pop”, or “Nova”"
+            autocomplete="off"
+          />
+          <div id="track-search-results" class="modal__results"></div>
+        </div>
+      </div>
+    </div>
 
     <script src="script.js" type="module"></script>
   </body>
