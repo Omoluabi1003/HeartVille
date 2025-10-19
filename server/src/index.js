@@ -212,6 +212,48 @@ const compatibilityInsights = {
   highlight: 'You spark the most conversations when you mention intentional travel and creative communities. Keep leaning into stories that show how you build spaces for others.',
 };
 
+const catalogueAlbum = {
+  id: 'omoluabi-catalogue-album',
+  title: 'Omoluabi Catalogue Album',
+  curator: 'Omoluabi Records',
+  releaseDate: '2025-08-15',
+  description:
+    'An Omoluabi concept album that follows the emotional arc of intentional dating—from first sparks to grounded connection across Lagos, London, and beyond.',
+  coverArt:
+    'https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=900&q=80',
+  tags: ['afro-fusion', 'intentional pop', 'concept album'],
+  tracks: [
+    {
+      id: 'track-starlit-signals',
+      title: 'Starlit Signals',
+      artist: 'Nova Carter',
+      duration: '3:18',
+      mood: 'Dreamy electro-soul for reflective night walks after a new match.',
+      url: 'https://suno.com/s/starlit-signals-heartville',
+      tags: ['dreamy', 'electro-soul', 'night drive'],
+    },
+    {
+      id: 'track-lantern-conversations',
+      title: 'Lantern Conversations',
+      artist: 'Maya Green & Jasper Lin',
+      duration: '2:54',
+      mood: 'Acoustic warmth for the first real conversation that lingers past midnight.',
+      url: 'https://suno.com/s/lantern-conversations-heartville',
+      tags: ['acoustic', 'warm', 'duet'],
+    },
+    {
+      id: 'NLfUnFJQPLg3HEmE',
+      title: 'Love Without Empathy',
+      artist: 'McD',
+      duration: '2:58',
+      mood: 'A moody alt-pop reflection on choosing empathy over performance.',
+      url: 'https://suno.com/s/NLfUnFJQPLg3HEmE',
+      tags: ['alt-pop', 'moody', 'introspective', 'omoluabi'],
+      spotlight: true,
+    },
+  ],
+};
+
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
@@ -250,6 +292,35 @@ app.get('/api/messages', (req, res) => {
 
 app.get('/api/insights', (_req, res) => {
   res.json({ insights: compatibilityInsights });
+});
+
+app.get('/api/catalogue', (_req, res) => {
+  res.json({ album: catalogueAlbum });
+});
+
+app.get('/api/tracks/search', (req, res) => {
+  const query = (req.query.q ?? '').toString().trim().toLowerCase();
+  const tracks = catalogueAlbum.tracks ?? [];
+
+  if (!query) {
+    return res.json({ tracks });
+  }
+
+  const results = tracks.filter((track) => {
+    const haystack = [
+      track.title,
+      track.artist,
+      track.mood,
+      ...(track.tags ?? []),
+    ]
+      .filter(Boolean)
+      .join(' ')
+      .toLowerCase();
+
+    return haystack.includes(query);
+  });
+
+  res.json({ tracks: results });
 });
 
 app.post('/api/matches', (req, res) => {
