@@ -1,5 +1,19 @@
 # ❤️ Heartville – Dating App MVP
 
+## Project at a glance
+
+**Category:** Dating experience MVP  
+**Purpose:** Explore curated profiles, match interactions, messaging previews and a mobile client  
+**Audience:** Users, implementers, contributors and potential partners  
+**Code:** https://github.com/Omoluabi1003/HeartVille
+
+**Implementation context:** Demo data and prototype features should not be treated as real matchmaking accounts or production privacy guarantees.
+
+The sections below describe the product philosophy, architecture and available development workflows. Confirm feature readiness through the actual code and release before using it operationally.
+
+---
+
+
 Heartville is an intentionally designed dating experience built with Expo (React Native) on the client and an Express + Socket.IO API on the server. The experience focuses on meaningful matches, thoughtful prompts, and actionable insights.
 
 ## Features
